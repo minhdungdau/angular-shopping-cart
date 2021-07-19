@@ -1,0 +1,20 @@
+<div class="summary">
+  <ul>
+    <li>
+      Subtotal <span>{{ subTotal | currency:"VND":"symbol":"1.0-0" }}</span>
+    </li>
+    <li *ngIf="discount">
+      Discount <span>{{ (subTotal*discount*0.01) | currency:"VND":"symbol":"1.0-0" }}</span>
+    </li>
+    <li>
+      Tax <span>{{ (subTotal * tax) | currency:"VND":"symbol":"1.0-0" }}</span>
+    </li>
+    <li class="total">
+      Total <span>{{ (subTotal * (1 + tax - discount*0.01)) | currency:"VND":"symbol":"1.0-0" }}</span>
+    </li>
+  </ul>
+</div>
+
+<div class="checkout">
+  <button type="button">Check Out</button>
+</div>
